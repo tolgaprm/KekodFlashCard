@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.jetbrains.kotlin.android)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt.plugin)
+    alias(libs.plugins.kotlin.parcelize)
 }
 
 android {
@@ -61,6 +62,8 @@ dependencies {
     implementation(libs.navigation.fragment)
     implementation(libs.navigation.ui)
     implementation(libs.coil)
+    implementation(libs.dots.indicator)
+    implementation(libs.lottie)
 
     implementation(libs.room.runtime)
     implementation(libs.room.ktx)
