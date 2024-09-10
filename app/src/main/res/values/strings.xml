@@ -1,3 +1,10 @@
 <resources>
     <string name="app_name">KekodFlashCard</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello">Merhaba</string>
+    <string name="onboarding_1_description">Yeni kelimeler öğrenmeye ve dil becerilerini geliştirmeye hazır mısın? Hadi başlayalım!</string>
+    <string name="onboarding_2_title">Öğren, Keşfet ve Geliştir</string>
+    <string name="onboarding_2_description">Farklı dillerdeki kelimeleri öğren, anlamlarını keşfet ve her gün yeni bir şeyler öğrenmeye devam et. Öğrendiklerini işaretleyerek kendi kelime dağarcığını oluştur!</string>
+    <string name="onboarding_3_title">Cümle Kur ve Gramer Hatalarını Düzelt!</string>
+    <string name="onboarding_3_description">AI desteği ile cümleler oluşturup gramer hatalarını düzeltebilirsin. Öğrendiklerini hemen kullanarak dil becerilerini mükemmelleştir!</string>
 </resources>

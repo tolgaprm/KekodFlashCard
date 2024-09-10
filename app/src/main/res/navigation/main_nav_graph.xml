@@ -9,5 +9,6 @@
         android:name="com.prmto.kekodflashcard.ui.main.MainFragment"
         android:label="MainFragment"
         tools:layout="@layout/fragment_main" />
+    <include app:graph="@navigation/onboarding_nav_graph" />
 
 </navigation>
