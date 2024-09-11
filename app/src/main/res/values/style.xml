@@ -12,4 +12,11 @@
         <item name="android:textStyle">normal</item>
         <item name="android:textColor">@color/black</item>
     </style>
+
+    <style name="KekodBottomNavigationView" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="itemIconTint">@color/selector_bottom_navigation_icon_tint</item>
+        <item name="itemTextColor">@color/selector_bottom_navigation_text_color</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
 </resources>
