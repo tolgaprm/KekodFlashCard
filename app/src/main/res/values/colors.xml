@@ -11,4 +11,6 @@
     <color name="purple_light">#9E94A6</color>
     <color name="gray">#D9D9D9</color>
     <color name="yellow">#E4A951</color>
+    <color name="input_layout_bg">#EDEAEF</color>
+    <color name="light_black">#414040</color>
 </resources>

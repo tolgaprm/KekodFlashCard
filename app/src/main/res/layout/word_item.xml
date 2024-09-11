@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="8dp"
+    android:background="@drawable/bg_radius_20"
+    android:backgroundTint="@color/input_layout_bg"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/ivWordImage"
+        android:layout_width="100dp"
+        android:layout_height="60dp"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@tools:sample/backgrounds/scenic" />
+
+    <TextView
+        android:id="@+id/tvMainWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textAppearance="@style/TextAppearance.Kekod.Title"
+        android:textSize="24sp"
+        app:layout_constraintStart_toEndOf="@+id/ivWordImage"
+        app:layout_constraintTop_toTopOf="@+id/ivWordImage"
+        tools:text="Valcano" />
+
+    <TextView
+        android:id="@+id/tvTranslatedWord"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:textAppearance="@style/TextAppearance.Kekod.SubTitle"
+        android:textColor="@color/light_black"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ivWordImage"
+        app:layout_constraintStart_toEndOf="@+id/ivWordImage"
+        app:layout_constraintTop_toBottomOf="@+id/tvMainWord"
+        tools:text="Volkanik" />
+
+    <ImageView
+        android:id="@+id/ivPlayButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:importantForAccessibility="no"
+        android:src="@drawable/ic_play"
+        app:layout_constraintBottom_toBottomOf="@+id/tvMainWord"
+        app:layout_constraintStart_toEndOf="@+id/tvMainWord"
+        app:layout_constraintTop_toTopOf="@+id/tvMainWord" />
+
+    <TextView
+        android:id="@+id/tvPlayTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/listen"
+        android:textAppearance="@style/TextAppearance.Kekod.SubTitle"
+        android:textColor="@color/light_black"
+        android:textSize="11sp"
+        app:layout_constraintEnd_toEndOf="@+id/ivPlayButton"
+        app:layout_constraintStart_toStartOf="@+id/ivPlayButton"
+        app:layout_constraintTop_toBottomOf="@+id/ivPlayButton" />
+
+
+    <ImageView
+        android:id="@+id/ivFavoriteButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:importantForAccessibility="no"
+        app:layout_constraintBottom_toBottomOf="@+id/ivWordImage"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ivWordImage"
+        tools:src="@drawable/ic_unfavorite" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.prmto.kekodflashcard.common.collect
+import com.prmto.kekodflashcard.common.collectFlow
 import com.prmto.kekodflashcard.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -29,17 +29,20 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
-        with(binding) {}
-
-        collectState()
+        collectFlow(viewModel.categoryItems, ::setCategoryItems)
     }
 
-    private fun collectState() {
-        with(binding) {
-            viewModel.uiState.collect(viewLifecycleOwner) { state ->
+    private fun setCategoryItems(categoryItems: List<CategoryItem>) {
+        binding.categoryItemFavorite.apply {
+            ivCategoryIcon.setImageResource(categoryItems[0].iconRes)
+            tvCategoryTitle.text = categoryItems[0].title.asString(requireContext())
+            tvCategorySubtitle.text = categoryItems[0].subtitle.asString(requireContext())
+        }
 
-            }
+        binding.categoryItemAI.apply {
+            ivCategoryIcon.setImageResource(categoryItems[1].iconRes)
+            tvCategoryTitle.text = categoryItems[1].title.asString(requireContext())
+            tvCategorySubtitle.text = categoryItems[1].subtitle.asString(requireContext())
         }
     }
 

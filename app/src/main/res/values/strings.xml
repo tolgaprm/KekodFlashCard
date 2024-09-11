@@ -7,4 +7,14 @@
     <string name="onboarding_2_description">Farklı dillerdeki kelimeleri öğren, anlamlarını keşfet ve her gün yeni bir şeyler öğrenmeye devam et. Öğrendiklerini işaretleyerek kendi kelime dağarcığını oluştur!</string>
     <string name="onboarding_3_title">Cümle Kur ve Gramer Hatalarını Düzelt!</string>
     <string name="onboarding_3_description">AI desteği ile cümleler oluşturup gramer hatalarını düzeltebilirsin. Öğrendiklerini hemen kullanarak dil becerilerini mükemmelleştir!</string>
+    <string name="categories">Kategoriler</string>
+    <string name="main_screen_subtitle">Pratik yapmak için birini seçiniz</string>
+    <string name="my_favorites">Favorilerim</string>
+    <string name="my_favorites_subtitle">Favorilerimde %s Kart var</string>
+    <string name="exercise_with_ai">AI ile Alıştırma</string>
+    <string name="exercise_with_ai_subtitle">AI hatalarını düzeltsin</string>
+    <string name="my_learned">Öğrendiklerim</string>
+    <string name="search_word">Kelime Ara</string>
+    <string name="list_view">Liste Görünümü</string>
+    <string name="listen">Dinle</string>
 </resources>
