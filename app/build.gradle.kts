@@ -57,6 +57,9 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    implementation(libs.bundles.retrofit)
+
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.android)
     implementation(libs.navigation.fragment)
@@ -69,9 +72,5 @@ dependencies {
     implementation(libs.room.ktx)
     annotationProcessor(libs.room.compiler)
     ksp(libs.room.compiler)
-
-    implementation(libs.retrofit)
-    implementation(libs.converter.gson)
-    implementation(libs.okhttp)
 
 }

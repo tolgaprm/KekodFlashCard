@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.prmto.kekodflashcard.common.collectFlow
+import com.prmto.kekodflashcard.data.remote.response.WordResponse
 import com.prmto.kekodflashcard.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -17,6 +18,13 @@ class MainFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel by viewModels<MainViewModel>()
+
+    private val wordAdapter by lazy {
+        WordAdapter(
+            onItemClick = ::onItemClicked,
+            onListenClick = ::onListenClicked
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,7 +37,14 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        viewModel.getWords()
+        binding.rvWords.adapter = wordAdapter
         collectFlow(viewModel.categoryItems, ::setCategoryItems)
+        collectFlow(viewModel.uiState, ::setUiState)
+    }
+
+    private fun setUiState(uiState: MainUiState) {
+        wordAdapter.submitList(uiState.words)
     }
 
     private fun setCategoryItems(categoryItems: List<CategoryItem>) {
@@ -44,6 +59,14 @@ class MainFragment : Fragment() {
             tvCategoryTitle.text = categoryItems[1].title.asString(requireContext())
             tvCategorySubtitle.text = categoryItems[1].subtitle.asString(requireContext())
         }
+    }
+
+    private fun onItemClicked(item: WordResponse) {
+
+    }
+
+    private fun onListenClicked(englishWord: String) {
+
     }
 
     override fun onDestroyView() {
