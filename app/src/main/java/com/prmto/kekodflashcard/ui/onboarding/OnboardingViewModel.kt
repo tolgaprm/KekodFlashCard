@@ -4,7 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.prmto.kekodflashcard.R
 import com.prmto.kekodflashcard.common.UiText
-import com.prmto.kekodflashcard.data.local.PreferencesRepository
+import com.prmto.kekodflashcard.data.repository.preferences.PreferencesRepository
 import com.prmto.kekodflashcard.ui.onboarding.model.OnboardingItem
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel

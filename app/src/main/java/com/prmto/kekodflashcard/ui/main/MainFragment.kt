@@ -6,8 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import com.google.android.material.snackbar.Snackbar
+import com.prmto.kekodflashcard.common.collectEvent
 import com.prmto.kekodflashcard.common.collectFlow
-import com.prmto.kekodflashcard.data.remote.response.WordResponse
 import com.prmto.kekodflashcard.databinding.FragmentMainBinding
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,7 +22,7 @@ class MainFragment : Fragment() {
 
     private val wordAdapter by lazy {
         WordAdapter(
-            onItemClick = ::onItemClicked,
+            onItemClick = viewModel::onItemClicked,
             onListenClick = ::onListenClicked
         )
     }
@@ -39,11 +40,16 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         viewModel.getWords()
         binding.rvWords.adapter = wordAdapter
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            viewModel.refreshWords()
+        }
         collectFlow(viewModel.categoryItems, ::setCategoryItems)
         collectFlow(viewModel.uiState, ::setUiState)
+        collectEvent(viewModel.viewEvent, ::handleViewEvent)
     }
 
     private fun setUiState(uiState: MainUiState) {
+        binding.swipeRefreshLayout.isRefreshing = uiState.loading
         wordAdapter.submitList(uiState.words)
     }
 
@@ -61,12 +67,21 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun onItemClicked(item: WordResponse) {
-
+    private fun handleViewEvent(viewEvent: MainViewEvent) {
+        when (viewEvent) {
+            is MainViewEvent.RefreshData -> {
+                Snackbar.make(
+                    binding.root,
+                    "Scroll to the top to see the new words",
+                    Snackbar.LENGTH_INDEFINITE
+                ).setAction("Scroll Top") {
+                    binding.rvWords.smoothScrollToPosition(0)
+                }.show()
+            }
+        }
     }
 
     private fun onListenClicked(englishWord: String) {
-
     }
 
     override fun onDestroyView() {

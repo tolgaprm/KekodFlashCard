@@ -1,11 +1,11 @@
 package com.prmto.kekodflashcard.di
 
-import com.prmto.kekodflashcard.data.local.PreferencesRepository
-import com.prmto.kekodflashcard.data.local.PreferencesRepositoryImpl
 import com.prmto.kekodflashcard.data.remote.datasource.WordRemoteDataSource
 import com.prmto.kekodflashcard.data.remote.datasource.WordRemoteDataSourceImpl
-import com.prmto.kekodflashcard.data.remote.repository.WordRepository
-import com.prmto.kekodflashcard.data.remote.repository.WordRepositoryImpl
+import com.prmto.kekodflashcard.data.repository.preferences.PreferencesRepository
+import com.prmto.kekodflashcard.data.repository.preferences.PreferencesRepositoryImpl
+import com.prmto.kekodflashcard.data.repository.word.WordRepository
+import com.prmto.kekodflashcard.data.repository.word.WordRepositoryImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn

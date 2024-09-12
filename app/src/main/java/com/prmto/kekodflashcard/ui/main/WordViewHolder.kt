@@ -4,16 +4,17 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
-import com.prmto.kekodflashcard.data.remote.response.WordResponse
+import com.prmto.kekodflashcard.R
 import com.prmto.kekodflashcard.databinding.WordItemBinding
+import com.prmto.kekodflashcard.domain.model.WordUI
 
 class WordViewHolder(
     private val binding: WordItemBinding
 ) : RecyclerView.ViewHolder(binding.root) {
 
     fun bind(
-        item: WordResponse,
-        onItemClick: (WordResponse) -> Unit,
+        item: WordUI,
+        onItemClick: (WordUI) -> Unit,
         onListenClick: (String) -> Unit
     ) {
         binding.apply {
@@ -32,6 +33,14 @@ class WordViewHolder(
             ivPlayButton.setOnClickListener {
                 onListenClick(item.englishWord)
             }
+
+            val favoriteRes = if (item.isFavorite) {
+                R.drawable.ic_favorite
+            } else {
+                R.drawable.ic_unfavorite
+            }
+
+            ivFavoriteButton.setImageResource(favoriteRes)
         }
     }
 

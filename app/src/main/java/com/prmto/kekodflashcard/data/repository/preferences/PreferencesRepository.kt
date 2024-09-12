@@ -1,4 +1,4 @@
-package com.prmto.kekodflashcard.data.local
+package com.prmto.kekodflashcard.data.repository.preferences
 
 interface PreferencesRepository {
 
