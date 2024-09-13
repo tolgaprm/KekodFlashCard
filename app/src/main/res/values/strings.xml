@@ -19,4 +19,7 @@
     <string name="listen">Dinle</string>
     <string name="scroll_to_top_new_word">Yeni kelimeleri görmek için yukarıya kaydırın</string>
     <string name="scroll_to_top">Yukarıya Git</string>
+    <string name="remove_from_learned">Öğrendiğim Kelimelerden Çıkar</string>
+    <string name="add_to_learned">Öğrendiğim Kelimelere Ekle</string>
+    <string name="listen_pronunciation">Kelime Telaffuz Dinle</string>
 </resources>

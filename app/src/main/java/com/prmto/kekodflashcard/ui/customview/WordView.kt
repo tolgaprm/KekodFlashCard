@@ -42,4 +42,8 @@ class WordView @JvmOverloads constructor(
         }
         styledAttributes.recycle()
     }
+
+    fun setDescription(description: String) {
+        binding.tvDescription.text = description
+    }
 }

@@ -49,6 +49,14 @@ class DetailDialogFragment : DialogFragment(R.layout.fragment_dialog_detail) {
             tvEnglishWord.text = wordUiItem.englishWord
             tvTurkishMean.text = wordUiItem.turkishMean
             tvFrenchMean.text = wordUiItem.frenchMean
+
+            val cvLearnedTextResId = if (args.isFromLearnedFragment) {
+                R.string.remove_from_learned
+            } else {
+                R.string.add_to_learned
+            }
+
+            binding.cvLearned.setDescription(getString(cvLearnedTextResId))
         }
     }
 
