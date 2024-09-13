@@ -19,6 +19,7 @@ room = "2.6.1"
 dots-indicator = "5.0"
 lottie = "6.3.0"
 swiperefreshlayout = "1.2.0-alpha01"
+splash= "1.0.0-alpha01"
 
 [libraries]
 androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
@@ -42,6 +43,8 @@ dots-indicator = { group = "com.tbuonomo", name = "dotsindicator", version.ref =
 lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
 retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
 retrofit-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofitVersion" }
+splash = { module = "androidx.core:core-splashscreen", version.ref = "splash" }
+
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
