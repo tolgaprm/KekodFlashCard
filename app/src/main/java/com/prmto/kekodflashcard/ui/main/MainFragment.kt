@@ -6,10 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import com.google.android.material.snackbar.Snackbar
 import com.prmto.kekodflashcard.common.collectEvent
 import com.prmto.kekodflashcard.common.collectFlow
 import com.prmto.kekodflashcard.databinding.FragmentMainBinding
+import com.prmto.kekodflashcard.domain.model.WordUI
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -22,8 +24,8 @@ class MainFragment : Fragment() {
 
     private val wordAdapter by lazy {
         WordAdapter(
-            onItemClick = viewModel::onItemClicked,
-            onListenClick = ::onListenClicked
+            onItemClick = ::onItemClicked,
+            onFavoriteClick = viewModel::onFavoriteClicked
         )
     }
 
@@ -81,7 +83,10 @@ class MainFragment : Fragment() {
         }
     }
 
-    private fun onListenClicked(englishWord: String) {
+    private fun onItemClicked(item: WordUI) {
+        findNavController().navigate(
+            MainFragmentDirections.actionMainFragmentToDetailDialogFragment(item)
+        )
     }
 
     override fun onDestroyView() {

@@ -63,10 +63,10 @@
         android:id="@+id/ivTurkishFlag"
         android:layout_width="30dp"
         android:layout_height="20dp"
-        android:src="@drawable/ic_turkish_flag"
-        android:scaleType="centerCrop"
-        android:importantForAccessibility="no"
         android:layout_marginStart="4dp"
+        android:importantForAccessibility="no"
+        android:scaleType="centerCrop"
+        android:src="@drawable/ic_turkish_flag"
         app:layout_constraintBottom_toBottomOf="@+id/tvTurkishMean"
         app:layout_constraintStart_toEndOf="@+id/tvTurkishMean"
         app:layout_constraintTop_toTopOf="@+id/tvTurkishMean" />
@@ -82,31 +82,6 @@
         app:layout_constraintBottom_toBottomOf="@+id/tvFrenchMean"
         app:layout_constraintStart_toEndOf="@+id/tvFrenchMean"
         app:layout_constraintTop_toTopOf="@+id/tvFrenchMean" />
-
-    <ImageView
-        android:id="@+id/ivPlayButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:importantForAccessibility="no"
-        android:src="@drawable/ic_play"
-        app:layout_constraintBottom_toBottomOf="@+id/tvMainWord"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/tvMainWord"
-        app:layout_constraintTop_toTopOf="@+id/tvMainWord" />
-
-    <TextView
-        android:id="@+id/tvPlayTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/listen"
-        android:textAppearance="@style/TextAppearance.Kekod.SubTitle"
-        android:textColor="@color/light_black"
-        android:textSize="11sp"
-        app:layout_constraintEnd_toEndOf="@+id/ivPlayButton"
-        app:layout_constraintStart_toStartOf="@+id/ivPlayButton"
-        app:layout_constraintTop_toBottomOf="@+id/ivPlayButton" />
-
 
     <ImageView
         android:id="@+id/ivFavoriteButton"

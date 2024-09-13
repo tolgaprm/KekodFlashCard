@@ -7,7 +7,7 @@ import com.prmto.kekodflashcard.domain.model.WordUI
 
 class WordAdapter(
     private val onItemClick: (WordUI) -> Unit,
-    private val onListenClick: (String) -> Unit
+    private val onFavoriteClick: (WordUI) -> Unit
 ) : ListAdapter<WordUI, WordViewHolder>(WordDiffCallback()) {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WordViewHolder {
         return WordViewHolder.create(parent)
@@ -18,7 +18,7 @@ class WordAdapter(
         holder.bind(
             item = item,
             onItemClick = onItemClick,
-            onListenClick = onListenClick
+            onFavoriteClick = onFavoriteClick
         )
     }
 }

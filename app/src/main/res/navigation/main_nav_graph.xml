@@ -10,12 +10,26 @@
         android:id="@+id/mainFragment"
         android:name="com.prmto.kekodflashcard.ui.main.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_detailDialogFragment"
+            app:destination="@id/detailDialogFragment" />
+    </fragment>
 
     <fragment
         android:id="@+id/myLearnedFragment"
         android:name="com.prmto.kekodflashcard.ui.learned.MyLearnedFragment"
         android:label="fragment_my_learned"
         tools:layout="@layout/fragment_my_learned" />
+
+    <dialog
+        android:id="@+id/detailDialogFragment"
+        android:name="com.prmto.kekodflashcard.ui.detaildialog.DetailDialogFragment"
+        android:label="DetailDialogFragment"
+        tools:layout="@layout/fragment_dialog_detail" >
+        <argument
+            android:name="wordUiItem"
+            app:argType="com.prmto.kekodflashcard.domain.model.WordUI" />
+    </dialog>
 
 </navigation>

@@ -1,5 +1,9 @@
 package com.prmto.kekodflashcard.domain.model
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
+@Parcelize
 data class WordUI(
     val id: Int,
     val englishWord: String,
@@ -7,4 +11,4 @@ data class WordUI(
     val frenchMean: String,
     val imageUrl: String,
     val isFavorite: Boolean
-)
+) : Parcelable

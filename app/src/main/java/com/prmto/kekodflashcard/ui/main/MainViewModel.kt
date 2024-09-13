@@ -96,7 +96,7 @@ class MainViewModel @Inject constructor(
             .launchIn(viewModelScope)
     }
 
-    fun onItemClicked(item: WordUI) {
+    fun onFavoriteClicked(item: WordUI) {
         viewModelScope.launch { toggleFavoriteWordItemUseCase(item) }
     }
 

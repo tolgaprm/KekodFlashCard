@@ -15,7 +15,7 @@ class WordViewHolder(
     fun bind(
         item: WordUI,
         onItemClick: (WordUI) -> Unit,
-        onListenClick: (String) -> Unit
+        onFavoriteClick: (WordUI) -> Unit
     ) {
         binding.apply {
             tvMainWord.text = item.englishWord
@@ -30,8 +30,8 @@ class WordViewHolder(
                 onItemClick(item)
             }
 
-            ivPlayButton.setOnClickListener {
-                onListenClick(item.englishWord)
+            ivFavoriteButton.setOnClickListener {
+                onFavoriteClick(item)
             }
 
             val favoriteRes = if (item.isFavorite) {
