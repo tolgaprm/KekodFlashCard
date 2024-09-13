@@ -40,7 +40,7 @@ class MainFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getWords()
+        viewModel.getWords(isShuffle = true)
         binding.rvWords.adapter = wordAdapter
         binding.swipeRefreshLayout.setOnRefreshListener {
             viewModel.refreshWords()

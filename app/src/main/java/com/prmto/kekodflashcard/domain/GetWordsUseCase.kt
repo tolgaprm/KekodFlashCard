@@ -15,10 +15,11 @@ class GetWordsUseCase @Inject constructor(
     operator fun invoke(): Flow<Response<List<WordUI>>> {
         return combine(
             wordRepository.getWords(),
-            wordRepository.getFavoriteWords()
-        ) { response, favoriteWords ->
+            wordRepository.getFavoriteWords(),
+            wordRepository.getLearnedWords()
+        ) { response, favoriteWords, learnedWords ->
             response.map { listOfWords ->
-                listOfWords.map {
+                listOfWords.filterNot { it.id in learnedWords.map { it.id } }.map {
                     it.toWordUI()
                         .copy(
                             englishWord = it.englishWord.replaceFirstChar { it.uppercase() },

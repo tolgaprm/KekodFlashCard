@@ -31,4 +31,10 @@ object DatabaseModule {
     fun provideFavoriteWordDao(
         database: KekodDatabase
     ) = database.favoriteWordDao()
+
+    @Provides
+    @Singleton
+    fun provideLearnedWordDao(
+        database: KekodDatabase
+    ) = database.learnedWordDao()
 }

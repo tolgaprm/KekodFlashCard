@@ -98,6 +98,7 @@
             android:backgroundTint="@color/light_black"
             android:gravity="center_vertical"
             android:padding="8dp"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="@+id/tilSearchWord"
             app:layout_constraintStart_toStartOf="@+id/tilSearchWord"
             app:layout_constraintTop_toBottomOf="@+id/tilSearchWord">
@@ -131,13 +132,13 @@
             android:id="@+id/rvWords"
             android:layout_width="0dp"
             android:layout_height="0dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
             app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="@+id/llListView"
+            app:layout_constraintEnd_toEndOf="@+id/tilSearchWord"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/llListView"
-            app:layout_constraintTop_toBottomOf="@+id/llListView"
+            app:layout_constraintStart_toStartOf="@+id/tilSearchWord"
+            app:layout_constraintTop_toBottomOf="@+id/tilSearchWord"
             tools:listitem="@layout/word_item" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

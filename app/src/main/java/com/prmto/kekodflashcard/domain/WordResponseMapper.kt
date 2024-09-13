@@ -1,6 +1,7 @@
 package com.prmto.kekodflashcard.domain
 
 import com.prmto.kekodflashcard.data.local.entity.FavoriteWordEntity
+import com.prmto.kekodflashcard.data.local.entity.LearnedWordEntity
 import com.prmto.kekodflashcard.data.remote.response.WordResponse
 import com.prmto.kekodflashcard.domain.model.WordUI
 
@@ -23,5 +24,15 @@ fun WordResponse.toWordUI(): WordUI {
         frenchMean = frenchMean,
         imageUrl = imageUrl,
         isFavorite = false
+    )
+}
+
+fun WordUI.toLearnedWordEntity(): LearnedWordEntity {
+    return LearnedWordEntity(
+        id = id,
+        englishWord = englishWord,
+        turkishWord = turkishMean,
+        frenchWord = frenchMean,
+        imageUrl = imageUrl
     )
 }

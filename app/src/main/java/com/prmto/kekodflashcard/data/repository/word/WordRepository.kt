@@ -2,6 +2,7 @@ package com.prmto.kekodflashcard.data.repository.word
 
 import com.prmto.kekodflashcard.common.Response
 import com.prmto.kekodflashcard.data.local.entity.FavoriteWordEntity
+import com.prmto.kekodflashcard.data.local.entity.LearnedWordEntity
 import com.prmto.kekodflashcard.data.remote.response.WordResponse
 import com.prmto.kekodflashcard.domain.model.WordUI
 import kotlinx.coroutines.flow.Flow
@@ -15,4 +16,10 @@ interface WordRepository {
     suspend fun deleteFavoriteWord(word: WordUI)
 
     fun getFavoriteWords(): Flow<List<FavoriteWordEntity>>
+
+    fun getLearnedWords(): Flow<List<LearnedWordEntity>>
+
+    suspend fun insertLearnedWord(word: LearnedWordEntity)
+
+    suspend fun deleteLearnedWord(word: LearnedWordEntity)
 }

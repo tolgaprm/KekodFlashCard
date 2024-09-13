@@ -34,6 +34,8 @@ class MainViewModel @Inject constructor(
     private val _viewEvent = MutableSharedFlow<MainViewEvent>()
     val viewEvent = _viewEvent.asSharedFlow()
 
+    private var firstTime = true
+
     private var favoriteItemsCount = 0
 
     init {
@@ -80,9 +82,10 @@ class MainViewModel @Inject constructor(
                 }
                 updateFavoriteCount(words.count { it.isFavorite })
                 viewModelScope.launch {
-                    if (isShuffle) {
+                    if (isShuffle && !firstTime) {
                         _viewEvent.emit(MainViewEvent.RefreshData)
                     }
+                    firstTime = false
                 }
             }
             .doOnError { errorMessage ->
