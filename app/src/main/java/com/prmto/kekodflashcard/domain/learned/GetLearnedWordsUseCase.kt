@@ -1,7 +1,8 @@
-package com.prmto.kekodflashcard.domain
+package com.prmto.kekodflashcard.domain.learned
 
 import com.prmto.kekodflashcard.data.repository.word.WordRepository
 import com.prmto.kekodflashcard.domain.model.WordUI
+import com.prmto.kekodflashcard.domain.toWordUI
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.combine
 import javax.inject.Inject

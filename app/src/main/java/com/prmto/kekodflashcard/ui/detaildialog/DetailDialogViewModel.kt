@@ -2,8 +2,8 @@ package com.prmto.kekodflashcard.ui.detaildialog
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.prmto.kekodflashcard.domain.InsertLearnedWordUseCase
-import com.prmto.kekodflashcard.domain.RemoveLearnedWordUseCase
+import com.prmto.kekodflashcard.domain.learned.InsertLearnedWordUseCase
+import com.prmto.kekodflashcard.domain.learned.RemoveLearnedWordUseCase
 import com.prmto.kekodflashcard.domain.model.WordUI
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch

@@ -2,9 +2,9 @@ package com.prmto.kekodflashcard.ui.learned
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.prmto.kekodflashcard.domain.GetLearnedWordsUseCase
 import com.prmto.kekodflashcard.domain.SearchUseCase
 import com.prmto.kekodflashcard.domain.ToggleFavoriteWordItemUseCase
+import com.prmto.kekodflashcard.domain.learned.GetLearnedWordsUseCase
 import com.prmto.kekodflashcard.domain.model.WordUI
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
