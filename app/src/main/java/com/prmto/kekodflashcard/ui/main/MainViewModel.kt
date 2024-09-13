@@ -8,9 +8,11 @@ import com.prmto.kekodflashcard.common.doOnError
 import com.prmto.kekodflashcard.common.doOnLoading
 import com.prmto.kekodflashcard.common.doOnSuccess
 import com.prmto.kekodflashcard.domain.GetWordsUseCase
+import com.prmto.kekodflashcard.domain.SearchUseCase
 import com.prmto.kekodflashcard.domain.ToggleFavoriteWordItemUseCase
 import com.prmto.kekodflashcard.domain.model.WordUI
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.Job
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -23,7 +25,8 @@ import javax.inject.Inject
 @HiltViewModel
 class MainViewModel @Inject constructor(
     private val getWordsUseCase: GetWordsUseCase,
-    private val toggleFavoriteWordItemUseCase: ToggleFavoriteWordItemUseCase
+    private val toggleFavoriteWordItemUseCase: ToggleFavoriteWordItemUseCase,
+    private val searchUseCase: SearchUseCase
 ) : ViewModel() {
     private val _categoryItems = MutableStateFlow<List<CategoryItem>>(listOf())
     val categoryItems = _categoryItems.asStateFlow()
@@ -37,6 +40,9 @@ class MainViewModel @Inject constructor(
     private var firstTime = true
 
     private var favoriteItemsCount = 0
+
+    private var searchJob: Job? = null
+
 
     init {
         setCategoryItems()
@@ -76,6 +82,7 @@ class MainViewModel @Inject constructor(
                 _uiState.update {
                     it.copy(
                         words = if (isShuffle) words.shuffled() else words,
+                        wordsBeforeSearch = words,
                         loading = false,
                         errorMessage = null
                     )
@@ -117,6 +124,20 @@ class MainViewModel @Inject constructor(
                 } else {
                     categoryItem
                 }
+            }
+        }
+    }
+
+    fun searchWord(query: String) {
+        _uiState.update { it.copy(searchQuery = query) }
+        searchJob?.cancel()
+        searchJob = viewModelScope.launch {
+            val searchedWords = searchUseCase.search(query, uiState.value.words)
+            _uiState.update {
+                it.copy(
+                    searchedWords = searchedWords,
+                    words = if (query.isBlank()) uiState.value.wordsBeforeSearch else searchedWords
+                )
             }
         }
     }

@@ -17,4 +17,6 @@
     <string name="search_word">Kelime Ara</string>
     <string name="list_view">Liste Görünümü</string>
     <string name="listen">Dinle</string>
+    <string name="scroll_to_top_new_word">Yeni kelimeleri görmek için yukarıya kaydırın</string>
+    <string name="scroll_to_top">Yukarıya Git</string>
 </resources>
