@@ -25,7 +25,7 @@ class GetWordsUseCase @Inject constructor(
                             englishWord = it.englishWord.replaceFirstChar { it.uppercase() },
                             turkishMean = it.turkishMean.replaceFirstChar { it.uppercase() },
                             frenchMean = it.frenchMean.replaceFirstChar { it.uppercase() },
-                            isFavorite = it.id in favoriteWords.map { it.id }
+                            isFavorite =  favoriteWords.any { favoriteWord -> favoriteWord.id == it.id }
                         )
                 }
             }

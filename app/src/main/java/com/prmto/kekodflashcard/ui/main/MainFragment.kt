@@ -2,6 +2,7 @@ package com.prmto.kekodflashcard.ui.main
 
 import android.os.Bundle
 import android.view.View
+import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
@@ -12,6 +13,7 @@ import com.prmto.kekodflashcard.common.collectEvent
 import com.prmto.kekodflashcard.common.collectFlow
 import com.prmto.kekodflashcard.databinding.FragmentMainBinding
 import com.prmto.kekodflashcard.domain.model.WordUI
+import com.prmto.kekodflashcard.ui.adapter.WordAdapter
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
@@ -45,6 +47,8 @@ class MainFragment : Fragment(R.layout.fragment_main) {
 
     private fun setUiState(uiState: MainUiState) {
         binding.swipeRefreshLayout.isRefreshing = uiState.loading
+        binding.rvWords.isVisible = !uiState.loading
+        binding.progressBar.isVisible = uiState.loading
         wordAdapter.submitList(uiState.words)
     }
 
@@ -77,7 +81,7 @@ class MainFragment : Fragment(R.layout.fragment_main) {
     }
 
     private fun setEditListener() {
-        binding.etSearchWord.doOnTextChanged { text, start, before, count ->
+        binding.etSearchWord.doOnTextChanged { text, _, _, _  ->
             viewModel.searchWord(text.toString())
         }
     }

@@ -1,4 +1,4 @@
-package com.prmto.kekodflashcard.ui.main
+package com.prmto.kekodflashcard.ui.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil

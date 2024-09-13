@@ -11,9 +11,10 @@ class SearchUseCase @Inject constructor() {
         query: String,
         wordList: List<WordUI>
     ): List<WordUI> {
+        val trimmedQuery = query.trim()
         return withContext(Dispatchers.Default) {
             wordList.filter {
-                wordMatchesQuery(it, query)
+                wordMatchesQuery(it, trimmedQuery)
             }
         }
     }

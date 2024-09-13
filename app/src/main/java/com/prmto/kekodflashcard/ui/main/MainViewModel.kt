@@ -129,14 +129,20 @@ class MainViewModel @Inject constructor(
     }
 
     fun searchWord(query: String) {
-        _uiState.update { it.copy(searchQuery = query) }
+        _uiState.update {
+            it.copy(
+                searchQuery = query,
+                loading = true,
+            )
+        }
         searchJob?.cancel()
         searchJob = viewModelScope.launch {
             val searchedWords = searchUseCase.search(query, uiState.value.words)
             _uiState.update {
                 it.copy(
                     searchedWords = searchedWords,
-                    words = if (query.isBlank()) uiState.value.wordsBeforeSearch else searchedWords
+                    words = if (query.isEmpty()) uiState.value.wordsBeforeSearch else searchedWords,
+                    loading = false
                 )
             }
         }

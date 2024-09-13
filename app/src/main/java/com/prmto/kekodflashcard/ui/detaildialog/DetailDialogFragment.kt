@@ -71,8 +71,9 @@ class DetailDialogFragment : DialogFragment(R.layout.fragment_dialog_detail) {
         }
 
         binding.cvLearned.setOnClickListener {
-            viewModel.onLearnedItemClicked(args.wordUiItem)
-            Toast.makeText(requireContext(), "Başarıyla Kaydedildi", Toast.LENGTH_SHORT).show()
+            viewModel.onLearnedItemClicked(args.wordUiItem, args.isFromLearnedFragment)
+            Toast.makeText(requireContext(),
+                getString(R.string.successfuly_saved), Toast.LENGTH_SHORT).show()
             findNavController().popBackStack()
         }
     }
