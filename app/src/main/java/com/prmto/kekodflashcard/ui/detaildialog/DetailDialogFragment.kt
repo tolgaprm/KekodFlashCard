@@ -3,6 +3,7 @@ package com.prmto.kekodflashcard.ui.detaildialog
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.speech.tts.TextToSpeech
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
@@ -14,6 +15,7 @@ import coil.load
 import com.prmto.kekodflashcard.R
 import com.prmto.kekodflashcard.databinding.FragmentDialogDetailBinding
 import dagger.hilt.android.AndroidEntryPoint
+import java.util.Locale
 
 @AndroidEntryPoint
 class DetailDialogFragment : DialogFragment(R.layout.fragment_dialog_detail) {
@@ -25,11 +27,14 @@ class DetailDialogFragment : DialogFragment(R.layout.fragment_dialog_detail) {
 
     private val viewModel: DetailDialogViewModel by viewModels()
 
+    private lateinit var textToSpeech: TextToSpeech
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentDialogDetailBinding.bind(view)
         setupView()
         setClickListeners()
+        textToSpeech = TextToSpeech(requireContext()) {}
     }
 
     override fun onStart() {
@@ -63,17 +68,39 @@ class DetailDialogFragment : DialogFragment(R.layout.fragment_dialog_detail) {
 
     private fun setClickListeners() {
         binding.cvListenEnglish.setOnClickListener {
+            if (textToSpeech.isSpeaking) {
+                textToSpeech.stop()
+            }
 
+            textToSpeech.language = Locale.UK
+            textToSpeech.speak(
+                args.wordUiItem.englishWord,
+                TextToSpeech.QUEUE_FLUSH,
+                null,
+                null
+            )
         }
 
         binding.cvListenFrench.setOnClickListener {
+            if (textToSpeech.isSpeaking) {
+                textToSpeech.stop()
+            }
 
+            textToSpeech.language = Locale.FRENCH
+            textToSpeech.speak(
+                args.wordUiItem.frenchMean  ,
+                TextToSpeech.QUEUE_FLUSH,
+                null,
+                null
+            )
         }
 
         binding.cvLearned.setOnClickListener {
             viewModel.onLearnedItemClicked(args.wordUiItem, args.isFromLearnedFragment)
-            Toast.makeText(requireContext(),
-                getString(R.string.successfuly_saved), Toast.LENGTH_SHORT).show()
+            Toast.makeText(
+                requireContext(),
+                getString(R.string.successfuly_saved), Toast.LENGTH_SHORT
+            ).show()
             findNavController().popBackStack()
         }
     }
@@ -81,5 +108,11 @@ class DetailDialogFragment : DialogFragment(R.layout.fragment_dialog_detail) {
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        textToSpeech.stop()
+        textToSpeech.shutdown()
     }
 }

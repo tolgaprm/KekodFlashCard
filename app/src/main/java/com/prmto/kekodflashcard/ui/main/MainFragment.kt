@@ -2,6 +2,7 @@ package com.prmto.kekodflashcard.ui.main
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
@@ -54,6 +55,14 @@ class MainFragment : Fragment(R.layout.fragment_main) {
             findNavController().navigate(
                 MainFragmentDirections.actionMainFragmentToFavoriteFragment()
             )
+        }
+
+        binding.categoryItemAI.root.setOnClickListener {
+            Toast.makeText(
+                requireContext(),
+                "Bu feature'ı yetiştiremedim maalesef :(",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 
