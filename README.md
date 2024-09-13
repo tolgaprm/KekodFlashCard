@@ -50,3 +50,12 @@ This project aims to develop an application that displays at least 50 words and 
 - **Coil**:  Image loading library
 - **Hilt**: Dependency Injection Library
 
+
+## Ekran Görüntüleri
+
+
+|                                   |                                    |                               |                                               |       |
+|---------------------------------------------------------|-----------------------------------------------|--------------------------------------------------------------------------|------------------------------------------------------------------------------|------------------------------------------------------------------------------|
+| ![](screenshots/screenshot_1.png) | ![](screenshots/screenshot_2.png) | ![](screenshots/screenshot_3.png) | ![](screenshots/screenshot_4.png) |  ![](screenshots/screenshot_5.png)|
+
+
