@@ -23,4 +23,6 @@
     <string name="add_to_learned">Öğrendiğim Kelimelere Ekle</string>
     <string name="listen_pronunciation">Kelime Telaffuz Dinle</string>
     <string name="successfuly_saved">Başarıyla Kaydedildi</string>
+    <string name="learned_words">Öğrendiğim Kelimler</string>
+    <string name="favorites_words">Favori Kelimelerim</string>
 </resources>
