@@ -36,3 +36,14 @@ fun WordUI.toLearnedWordEntity(): LearnedWordEntity {
         imageUrl = imageUrl
     )
 }
+
+fun LearnedWordEntity.toWordUI(): WordUI {
+    return WordUI(
+        id = id,
+        englishWord = englishWord,
+        turkishMean = turkishWord,
+        frenchMean = frenchWord,
+        imageUrl = imageUrl,
+        isFavorite = false
+    )
+}
