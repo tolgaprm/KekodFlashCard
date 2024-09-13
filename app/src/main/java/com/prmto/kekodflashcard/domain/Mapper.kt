@@ -47,3 +47,14 @@ fun LearnedWordEntity.toWordUI(): WordUI {
         isFavorite = false
     )
 }
+
+fun FavoriteWordEntity.toWordUI(): WordUI {
+    return WordUI(
+        id = id,
+        englishWord = englishWord,
+        turkishMean = turkishWord,
+        frenchMean = frenchWord,
+        imageUrl = imageUrl,
+        isFavorite = isFavorite
+    )
+}

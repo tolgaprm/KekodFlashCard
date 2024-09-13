@@ -10,17 +10,20 @@
         android:id="@+id/mainFragment"
         android:name="com.prmto.kekodflashcard.ui.main.MainFragment"
         android:label="MainFragment"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_detailDialogFragment"
             app:destination="@id/detailDialogFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_favoriteFragment"
+            app:destination="@id/favoriteFragment" />
     </fragment>
 
     <fragment
         android:id="@+id/myLearnedFragment"
         android:name="com.prmto.kekodflashcard.ui.learned.MyLearnedFragment"
         android:label="fragment_my_learned"
-        tools:layout="@layout/fragment_my_learned" >
+        tools:layout="@layout/fragment_my_learned">
         <action
             android:id="@+id/action_myLearnedFragment_to_detailDialogFragment"
             app:destination="@id/detailDialogFragment" />
@@ -30,14 +33,19 @@
         android:id="@+id/detailDialogFragment"
         android:name="com.prmto.kekodflashcard.ui.detaildialog.DetailDialogFragment"
         android:label="DetailDialogFragment"
-        tools:layout="@layout/fragment_dialog_detail" >
+        tools:layout="@layout/fragment_dialog_detail">
         <argument
             android:name="wordUiItem"
             app:argType="com.prmto.kekodflashcard.domain.model.WordUI" />
         <argument
             android:name="isFromLearnedFragment"
-            app:argType="boolean"
-            android:defaultValue="false" />
+            android:defaultValue="false"
+            app:argType="boolean" />
     </dialog>
+    <fragment
+        android:id="@+id/favoriteFragment"
+        android:name="com.prmto.kekodflashcard.ui.favorite.FavoriteFragment"
+        android:label="FavoriteFragment"
+        tools:layout="@layout/fragment_favorite" />
 
 </navigation>
