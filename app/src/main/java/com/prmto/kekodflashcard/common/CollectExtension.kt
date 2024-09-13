@@ -46,3 +46,4 @@ fun <T> Fragment.collectEvent(
         }
     }
 }
+

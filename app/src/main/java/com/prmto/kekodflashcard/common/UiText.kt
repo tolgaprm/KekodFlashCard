@@ -10,15 +10,17 @@ sealed class UiText : Parcelable {
 
     @Parcelize
     data class StringRes(
-        @androidx.annotation.StringRes val resId: Int
-    ) : UiText(), Parcelable
+        @androidx.annotation.StringRes val resId: Int,
+        val formatArgs: List<String> = emptyList()
+    ) : UiText(), Parcelable {
+    }
 
     @Parcelize
     data class DynamicText(val value: String) : UiText(), Parcelable
 
     fun asString(context: Context): String {
         return when (this) {
-            is StringRes -> context.getString(resId)
+            is StringRes -> context.getString(resId, *formatArgs.toTypedArray())
             is DynamicText -> value
         }
     }

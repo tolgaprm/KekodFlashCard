@@ -1,7 +1,7 @@
 package com.prmto.kekodflashcard.ui
 
 import androidx.lifecycle.ViewModel
-import com.prmto.kekodflashcard.data.local.PreferencesRepository
+import com.prmto.kekodflashcard.data.repository.preferences.PreferencesRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

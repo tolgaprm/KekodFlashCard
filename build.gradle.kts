@@ -5,5 +5,6 @@ plugins {
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.hilt.plugin) apply false
     alias(libs.plugins.kotlin.parcelize) apply false
+    alias(libs.plugins.androidx.navigation.safeargs.kotlin) apply false
 }
 

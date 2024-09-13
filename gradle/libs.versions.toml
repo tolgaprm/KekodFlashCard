@@ -1,23 +1,27 @@
 [versions]
 agp = "8.5.2"
-kotlin = "2.0.20"
+kotlin = "2.0.10"
 core-ktx = "1.13.1"
 junit = "4.13.2"
 junitVersion = "1.2.1"
 espresso-core = "3.6.1"
 appcompat = "1.7.0"
 material = "1.12.0"
-ksp = "2.0.20-1.0.24"
+ksp = "2.0.10-1.0.24"
 activity = "1.9.1"
 constraintlayout = "2.1.4"
 coilVersion = "2.7.0"
 hilt = "2.52"
 navigation = "2.7.7"
+okhttp = "4.12.0"
+retrofitVersion = "2.9.0"
 room = "2.6.1"
 dots-indicator = "5.0"
 lottie = "6.3.0"
+swiperefreshlayout = "1.2.0-alpha01"
 
 [libraries]
+androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "junitVersion" }
@@ -36,6 +40,8 @@ room-compiler = { group = "androidx.room", name = "room-compiler", version.ref =
 room-ktx = { group = "androidx.room", name = "room-ktx", version.ref = "room" }
 dots-indicator = { group = "com.tbuonomo", name = "dotsindicator", version.ref = "dots-indicator" }
 lottie = { group = "com.airbnb.android", name = "lottie", version.ref = "lottie" }
+retrofit = { module = "com.squareup.retrofit2:retrofit", version.ref = "retrofitVersion" }
+retrofit-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofitVersion" }
 
 [plugins]
 android-application = { id = "com.android.application", version.ref = "agp" }
@@ -43,3 +49,7 @@ jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = 
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
 hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize", version.ref = "kotlin" }
+androidx-navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigation" }
+
+[bundles]
+retrofit = ["retrofit", "retrofit-gson"]

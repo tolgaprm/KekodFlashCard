@@ -4,6 +4,7 @@ plugins {
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt.plugin)
     alias(libs.plugins.kotlin.parcelize)
+    alias(libs.plugins.androidx.navigation.safeargs.kotlin)
 }
 
 android {
@@ -57,6 +58,9 @@ dependencies {
     androidTestImplementation(libs.espresso.core)
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
+
+    implementation(libs.bundles.retrofit)
+
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.android)
     implementation(libs.navigation.fragment)
@@ -69,5 +73,7 @@ dependencies {
     implementation(libs.room.ktx)
     annotationProcessor(libs.room.compiler)
     ksp(libs.room.compiler)
+
+    implementation(libs.androidx.swiperefreshlayout)
 
 }
