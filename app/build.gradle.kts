@@ -59,6 +59,8 @@ dependencies {
     implementation(libs.androidx.activity)
     implementation(libs.androidx.constraintlayout)
 
+    implementation(libs.splash)
+
     implementation(libs.bundles.retrofit)
 
     ksp(libs.hilt.compiler)
